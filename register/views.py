@@ -18,3 +18,12 @@ class UserRegistrationView(AnonymousRequiredMixin, FormView):
     def form_valid(self, form):
         form.save()
         return FormView.form_valid(self, form)
+
+class AddChocolateView(FormView):
+    template_name = "Add_chocolate.html"
+    form_class = ChocolateAddForm
+    success_url = 'register/chocolate/success/'
+
+    def form_valid(self, form):
+        form.save()
+        return FormView.form_valid(self, form)
